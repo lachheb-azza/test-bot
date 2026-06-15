@@ -3,6 +3,7 @@ package com.sfeir.testbot.agents;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.stereotype.Component;
 
@@ -30,9 +31,8 @@ public class AIAgent {
     }
 
 
-    public String askAgent(String query) {
-        return chatClient.prompt()
-                .user(query)
+    public String askAgent(Prompt prompt) {
+        return chatClient.prompt(prompt)
                 .call()
                 .content();
     }
