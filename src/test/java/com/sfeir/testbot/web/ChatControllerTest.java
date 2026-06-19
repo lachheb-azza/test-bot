@@ -49,7 +49,7 @@ class ChatControllerTest {
         when(aiAgent.askAgent(org.mockito.ArgumentMatchers.any(Prompt.class)))
                 .thenReturn("JE NE SAIS PAS");
 
-        String result = chatController.chat(null);
+        String result = chatController.chat("");
 
         assertThat(result).isEqualTo("JE NE SAIS PAS");
     }
